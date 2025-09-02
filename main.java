@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class main {
     public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
+        Scanner s = new Scanner(System.in); 
         System.out.println("Result: " + calculator(s.nextLine()));
     }
     public static int calculator(String str) {
@@ -23,6 +23,9 @@ public class main {
                     i++;
                 }
                 result += sign * Integer.parseInt(num.toString());
+            } else {
+                System.out.println("Something went wrong.");
+                break;
             }
         }
         return result;
