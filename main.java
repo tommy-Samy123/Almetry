@@ -1,3 +1,4 @@
+import java.util.Stack;
 import java.util.Scanner;
 
 public class main {
@@ -6,28 +7,63 @@ public class main {
         System.out.println("Result: " + calculator(s.nextLine()));
     }
     public static int calculator(String str) {
-        int result = 0;
-        int sign = 1;
+        char sign = '+';
+        int num = 0;
+        Stack<Integer> stack = new Stack<>();
+        str += '+';
 
         for (int i = 0; i < str.length(); i++) {
             char c = str.charAt(i);
-            if (c == '+') {
-                sign = 1;
-            } else if (c == '-') {
-                sign = -1;
-            } else if (c >= '0' && c <= '9') {
-                StringBuilder num = new StringBuilder();
-                num.append(c);
-                while (i + 1 < str.length() && str.charAt(i + 1) >= '0' && str.charAt(i + 1) <= '9') {
-                    num.append(str.charAt(i + 1));
-                    i++;
-                }
-                result += sign * Integer.parseInt(num.toString());
-            } else {
-                System.out.println("Something went wrong.");
-                break;
+
+            if (Character.isDigit(c)) {
+                num = num * 10 + (c - '0');
             }
+
+            if (c == '(') {
+                stack.push((int) sign);
+                stack.push(Integer.MIN_VALUE);  
+                sign = '+';
+                num = 0;
+            } 
+
+            else if (c == ')') {
+                if (sign == '+') stack.push(num);
+                else if (sign == '-') stack.push(-num);
+                else if (sign == '*') stack.push(stack.pop() * num);
+                else if (sign == '/') stack.push(stack.pop() / num);
+                
+                num = 0;
+
+                int sum = 0;
+                int item = stack.pop();
+                while (item != Integer.MIN_VALUE) {
+                    sum += item;
+                    item = stack.pop();
+                }
+ 
+                sign = (char) stack.pop().intValue();
+                num = sum;
+            }
+
+            else if ("+-*/".indexOf(c) != -1 || i == str.length() - 1) {
+                if (sign == '+') {
+                    stack.push(num);
+                } else if (sign == '-') {
+                    stack.push(-num);
+                } else if (sign == '*') {
+                    stack.push(stack.pop() * num);
+                } else if (sign == '/') {
+                    stack.push(stack.pop() / num);
+                } else {
+                    System.out.println("Something went wrong.");
+                    break;
+                }
+                num = 0;
+                sign = c;
+                
+            }
+
         }
-        return result;
+        return stack.stream().mapToInt(Integer::intValue).sum();
     }
 }
