@@ -4,7 +4,11 @@ import java.util.Scanner;
 public class main {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in); 
-        System.out.println("Result: " + calculator(s.nextLine()));
+        while (true){
+            String input = s.nextLine();
+            if (input.equals("quit")) break;
+            System.out.println("Result: " + calculator(input));
+        } 
     }
     public static int calculator(String str) {
         char sign = '+';
