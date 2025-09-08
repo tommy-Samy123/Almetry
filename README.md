@@ -32,7 +32,8 @@ javac main.java
 ``` bash
 java main
 ```
-## ⌨️ Sample Input and Output
+
+## ⌨️ Sample Input and Ouput
 ```bash
 Input: 2+3*4
 Result: 14
