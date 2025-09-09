@@ -1,15 +1,49 @@
-# Almetry
-Almetry is my simple function calculator. 
-Operators:
-- Addition
-- Subtraction
-- Multiplication
-- Division
-- Exponents
-- Roots
+# Almetry  
+Almetry is a simple **Java-based command-line calculator** that evaluates mathematical expressions using PEMDAS with support for parentheses and multiple operators.  
 
-Currently, Almetry can add, subtract, multiply, divide, and use parentheses. It can also follow PEMDAS. We use the Stack data structure to do this.
+=======
+## ✨ Features  
+- ➕ Addition  
+- ➖ Subtraction  
+- ✖️ Multiplication  
+- ➗ Division  
+- 🔢 Multi-digit numbers  
+- 🧮 Parentheses for grouping  
 
-I plan to make a UI similar to a calculator like this:
-![Logo](https://casioau.com/cdn/shop/products/hs8lvbk-casio-calculators-308066.jpg?v=1705373573)
+## 🚧 Planned Features:  
+- ⬆️ Exponents (`^`)  
+-  √ Radicals
+- Mathematical Constants (`π`)
+- 📱Graphical User Interface
+
+## 📂 Project Structure  
+Almetry \
+├── .gitignore \
+├── main.java \
+├── README.md
+
+
+## 🚀 Usage  
+
+### 1. Compile  
+```bash
+javac main.java
+```
+### 2. Run
+``` bash
+java main
+```
+## ⌨️ Sample Input and Ouput
+```bash
+Input: 2+3*4
+Result: 14
+
+Input: (5+2)*3
+Result: 21
+
+Input: 10/2+6
+Result: 11
+
+Input: quit
+```
 
