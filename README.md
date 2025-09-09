@@ -1,7 +1,6 @@
 # Almetry  
 Almetry is a simple **Java-based command-line calculator** that evaluates mathematical expressions using PEMDAS with support for parentheses and multiple operators.  
 
-=======
 ## ✨ Features  
 - ➕ Addition  
 - ➖ Subtraction  
@@ -33,7 +32,7 @@ javac main.java
 ``` bash
 java main
 ```
-## ⌨️ Sample Input and Ouput
+## ⌨️ Sample Input and Output
 ```bash
 Input: 2+3*4
 Result: 14
